@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".MainActivity" >
+
+	<ImageView
+		android:id="@+id/img_questionImage"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="3"
+		android:adjustViewBounds="true"
+		android:scaleType="centerCrop"
+		tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+	<TextView
+		android:id="@+id/txt_questionText"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:gravity="center"
+		android:textSize="16sp"
+		android:typeface="serif"
+		tools:text="Famous advice from an iconic mentor. Which fictional character really imparted this bit of sage wisdom?" />
+
+	<include layout="@layout/answer_buttons_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1" />
+
+	<include layout="@layout/submit_button_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"/>
+</LinearLayout>
