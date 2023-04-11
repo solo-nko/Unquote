@@ -25,6 +25,7 @@
 		app:layout_constraintLeft_toRightOf="@id/include_remaining_questions"
 		app:layout_constraintRight_toRightOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
+		android:text="Submit"
 		tools:text="Submit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
