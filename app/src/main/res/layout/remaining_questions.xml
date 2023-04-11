@@ -12,7 +12,8 @@
 		android:layout_height="wrap_content"
 		android:textSize="24sp"
 		android:textStyle="bold"
-		tools:text="Eight" />
+		android:text=""
+		tools:text="8" />
 
 	<TextView
 		android:id="@+id/txt_questionsLeft"

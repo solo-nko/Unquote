@@ -6,31 +6,48 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
-
-	ImageView imgQuestion = findViewById(R.id.img_questionImage);
-	TextView questionText = findViewById(R.id.txt_questionText);
-	Button btnAnswer1 = findViewById(R.id.btn_answer1);
-	Button btnAnswer2 = findViewById(R.id.btn_answer2);
-	Button btnAnswer3 = findViewById(R.id.btn_answer3);
-	Button btnAnswer4 = findViewById(R.id.btn_answer4);
-	Button btnSubmit = findViewById(R.id.btn_submit);
-
-	TextView numRemainingQuestions = findViewById(R.id.txt_numRemainingQuestions);
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
 
 	int currentQuestionIndex = 0;
 	int totalCorrect = 0;
 	int totalQuestions = 0;
 
 	ArrayList<Question> questions; //an arraylist to hold the Question objects. Or, in humanspeak, a list we can put the questions in.
+
+	ImageView imgQuestion;
+	TextView questionText;
+	TextView numRemainingQuestions;
+	TextView txtRemainingQuestions;
+	Button btnAnswer1;
+	Button btnAnswer2;
+	Button btnAnswer3;
+	Button btnAnswer4;
+	Button btnSubmit;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		imgQuestion = findViewById(R.id.img_questionImage);
+		questionText = findViewById(R.id.txt_questionText);
+		btnAnswer1 = findViewById(R.id.btn_answer1);
+		btnAnswer2 = findViewById(R.id.btn_answer2);
+		btnAnswer3 = findViewById(R.id.btn_answer3);
+		btnAnswer4 = findViewById(R.id.btn_answer4);
+		btnSubmit = findViewById(R.id.btn_submit);
+		numRemainingQuestions = findViewById(R.id.txt_numRemainingQuestions);
+		txtRemainingQuestions = findViewById(R.id.txt_questionsLeft);
+
+		startNewGame();
+	}
+
 
 
 	public int generateRandomNumber(int max) { //note that this function's logic rounds down due to how it works.  meaning, if you set max to 100, the highest it will return is 99.
@@ -52,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void displayQuestion(Question inputQuestion) {
+		imgQuestion.setImageResource(inputQuestion.imageId);
 		questionText.setText(inputQuestion.questionText);
 		btnAnswer1.setText(inputQuestion.choice1);
 		btnAnswer2.setText(inputQuestion.choice2);
@@ -60,9 +78,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void startNewGame() {
-		QuestionList questionSource = new QuestionList();
-
-		questions = questionSource.getList();
+		questions = new QuestionList().getList();
 		totalCorrect = 0;
 		totalQuestions = questions.size();
 
@@ -72,7 +88,12 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void displayQuestionsRemaining(int remainingQuestions) {
-		numRemainingQuestions.setText(remainingQuestions);
+		numRemainingQuestions.setText(Integer.toString(remainingQuestions));
+		if (remainingQuestions > 1) {
+			txtRemainingQuestions.setText("Questions Left!");
+		} else {
+			txtRemainingQuestions.setText("Question Left!");
+		}
 	}
 
 	//things to do upon submitting an answer
@@ -91,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 			//otherwise, determine the next question
 		} else {
 			chooseNewQuestion();
-			// displayQuestion(getCurrentQuestion());
+			displayQuestion(getCurrentQuestion());
 		}
 	}
 
