@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
 	public void startNewGame() {
 
-		questions = new QuestionList().getList(6);
+		questions = new PopCultureList().getList(6);
 		totalCorrect = 0;
 		totalQuestions = questions.size();
 
