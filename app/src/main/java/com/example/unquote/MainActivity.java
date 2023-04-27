@@ -1,8 +1,10 @@
 package com.example.unquote;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
 		numRemainingQuestions = findViewById(R.id.txt_numRemainingQuestions);
 		txtRemainingQuestions = findViewById(R.id.txt_questionsLeft);
 
+		//code to run on pressing each of the buttons
+		btnAnswer1.setOnClickListener(view -> onAnswerSelection(0));
+		btnAnswer2.setOnClickListener(view -> onAnswerSelection(1));
+		btnAnswer3.setOnClickListener(view -> onAnswerSelection(2));
+		btnAnswer4.setOnClickListener(view -> onAnswerSelection(3));
+
+		btnSubmit.setOnClickListener(view -> onAnswerSubmission());
+
 		startNewGame();
 	}
 
@@ -68,13 +78,17 @@ public class MainActivity extends AppCompatActivity {
 		return getCurrentQuestion();
 	}
 
-	public void displayQuestion(Question inputQuestion) {
-		imgQuestion.setImageResource(inputQuestion.imageId);
-		questionText.setText(inputQuestion.questionText);
+	private void resetAnswerButtons(Question inputQuestion) {
 		btnAnswer1.setText(inputQuestion.choice1);
 		btnAnswer2.setText(inputQuestion.choice2);
 		btnAnswer3.setText(inputQuestion.choice3);
 		btnAnswer4.setText(inputQuestion.choice4);
+	}
+
+	public void displayQuestion(Question inputQuestion) {
+		imgQuestion.setImageResource(inputQuestion.imageId);
+		questionText.setText(inputQuestion.questionText);
+		resetAnswerButtons(inputQuestion);
 	}
 
 	public void startNewGame() {
@@ -96,8 +110,37 @@ public class MainActivity extends AppCompatActivity {
 		}
 	}
 
+	public void onAnswerSelection(int answerSelection) {
+		Question currentQuestion = getCurrentQuestion();
+		currentQuestion.playerAnswer = answerSelection;
+		resetAnswerButtons(currentQuestion);
+		switch (answerSelection) {
+			case 0:
+				btnAnswer1.setText("✔ " + currentQuestion.choice1);
+				break;
+			case 1:
+				btnAnswer2.setText("✔ " + currentQuestion.choice2);
+				break;
+			case 2:
+				btnAnswer3.setText("✔ " + currentQuestion.choice3);
+				break;
+			case 3:
+				btnAnswer4.setText("✔" + currentQuestion.choice4);
+				break;
+		}
+	}
+
 	//things to do upon submitting an answer
 	public void onAnswerSubmission() {
+		//if no answer has been selected yet (as indicated by the playerAnswer still being its default -1), we tell the player that we need an answer, and exit the method.
+		if (getCurrentQuestion().playerAnswer == -1) {
+			AlertDialog.Builder nothingSelected = new AlertDialog.Builder(MainActivity.this);
+			nothingSelected.setTitle("No answer selected!");
+			nothingSelected.setMessage("You need to give an answer first.");
+			nothingSelected.create().show(); //display popup
+			return;
+		}
+
 		//if the player's answer matches the correct answer (as determined by the isCorrect() Question method), increment the number of correctly answered questions
 		if (getCurrentQuestion().isCorrect() == true) {
 			totalCorrect++;
