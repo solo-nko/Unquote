@@ -18,31 +18,31 @@ public class PopCultureList extends QuestionList {
 		Question advice4 = new Question(R.drawable.img_quote_3, "Insanely inspiring, insanely incorrect (maybe). Who is the true source of this inspiration?", "Nelson Mandela", "Harriet Tubman", "Mahatma Ghandhi", "Nicholas Klein", 3);
 		qList.add(advice4);
 
-		Question advice5 = new Question(R.drawable.img_quote_4, "A peace worth striving for - who actually reminded us of this?", "Malala Yousafzai", "Martin Luther King Jr.", "Liu Xiaobo", "Dalai Lama", 1);
+		Question advice5 = new Question(R.drawable.img_quote_4, "A peace worth striving for - who actually reminded us of this?", "Malala Yousafzai", "Martin Luther\n King Jr.", "Liu Xiaobo", "Dalai Lama", 1);
 		qList.add(advice5);
 
-		Question advice6 = new Question(R.drawable.img_quote_5, "Unfortunately, true - but did Marilyn Monroe convey it or did someone else?", "Laurel Thatcher Ulrich", "Eleanor Roosevelt", "Marilyn Monroe", "Queen Victoria", 0);
+		Question advice6 = new Question(R.drawable.img_quote_5, "Unfortunately, true - but did Marilyn Monroe convey it or did someone else?", "Laurel Thatcher\n Ulrich", "Eleanor Roosevelt", "Marilyn Monroe", "Queen Victoria", 0);
 		qList.add(advice6);
 
-		Question advice7 = new Question(R.drawable.img_quote_6, "Here's the truth, Will Smith DID say this, but in which movie?", "Independence Day", "Bad Boys", "Men in Black", "The Pursuit of Happiness", 2);
+		Question advice7 = new Question(R.drawable.img_quote_6, "Here's the truth, Will Smith DID say this, but in which movie?", "Independence Day", "Bad Boys", "Men in Black", "The Pursuit of\n Happiness", 2);
 		qList.add(advice7);
 
 		Question advice8 = new Question(R.drawable.img_quote_7, "Which TV funny gal actually quipped this 1-liner?", "Ellen Degeneres", "Amy Poehler", "Betty White", "Tina Fey", 3);
 		qList.add(advice8);
 
-		Question advice9 = new Question(R.drawable.img_quote_8, "This mayor won't get my vote - but did he actually give this piece of advice? And if not, who did?", "Forrest Gump", "Dorry (Finding Nemo)", "Esther Williams", "The Mayor (Jaws)", 1);
+		Question advice9 = new Question(R.drawable.img_quote_8, "This mayor won't get my vote - but did he actually give this piece of advice? And if not, who did?", "Forrest Gump", "Dorry\n (Finding Nemo)", "Esther Williams", "The Mayor (Jaws)", 1);
 		qList.add(advice9);
 
 		Question advice10 = new Question(R.drawable.img_quote_9, "Her heart will go on, but whose heart is it?", "Whitney Houston", "Diana Ross", "Celine Dion", "Mariah Carey", 0);
 		qList.add(advice10);
 
-		Question advice11 = new Question(R.drawable.img_quote_10, "He's the king of something alright - to whom does this self-titling line belong to?", "Tony Montana (Scarface)", "Joker (The Dark Knight)", "Lex Luthor (Batman v Superman)", "Jack (Titanic)", 3);
+		Question advice11 = new Question(R.drawable.img_quote_10, "He's the king of something alright - to whom does this self-titling line belong to?", "Tony Montana\n (Scarface)", "Joker \n(The Dark Knight)", "Lex Luthor\n (Batman v Superman)", "Jack (Titanic)", 3);
 		qList.add(advice11);
 
-		Question advice12 = new Question(R.drawable.img_quote_11, "Is \"Grey\" synonymous for \"wise\"? If so, maybe Gandalf did preach this advice. If not, who did?", "Yoda (Star Wars)", "Gandalf (Lord of the Rings)", "Dumbledore (Harry Potter)","Uncle Ben (Spider-Man)", 0);
+		Question advice12 = new Question(R.drawable.img_quote_11, "Is \"Grey\" synonymous for \"wise\"? If so, maybe Gandalf did preach this advice. If not, who did?", "Yoda (Star Wars)", "Gandalf\n (Lord of the Rings)", "Dumbledore\n (Harry Potter)","Uncle Ben\n (Spider-Man)", 0);
 		qList.add(advice12);
 
-		Question advice13 = new Question(R.drawable.img_quote_12, "Houston, we have a problem with this quote - which space-traveler does this catchphrase actually belong to?", "Han Solo (Star Wars)", "Captain Kirk (Star Trek)", "Jim Lovell (Apollo 13)", "Buzz Lightyear (Toy Story)", 2);
+		Question advice13 = new Question(R.drawable.img_quote_12, "Houston, we have a problem with this quote - which space-traveler does this catchphrase actually belong to?", "Han Solo (Star Wars)", "Captain Kirk\n (Star Trek)", "Jim Lovell\n (Apollo 13)", "Buzz Lightyear\n (Toy Story)", 2);
 		qList.add(advice13);
 	}
 }

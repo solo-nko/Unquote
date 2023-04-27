@@ -105,9 +105,9 @@ public class MainActivity extends AppCompatActivity {
 	public void displayQuestionsRemaining(int remainingQuestions) {
 		numRemainingQuestions.setText(Integer.toString(remainingQuestions));
 		if (remainingQuestions > 1) {
-			txtRemainingQuestions.setText("Questions Left!");
+			txtRemainingQuestions.setText(R.string.questionsLeft);
 		} else {
-			txtRemainingQuestions.setText("Question Left!");
+			txtRemainingQuestions.setText(R.string.questionLeft);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 		if (getCurrentQuestion().playerAnswer == -1) {
 			AlertDialog.Builder nothingSelected = new AlertDialog.Builder(MainActivity.this);
 			nothingSelected.setTitle("No answer selected!");
-			nothingSelected.setMessage("You need to give an answer first.");
+			nothingSelected.setMessage("You need to select an answer first.");
 			nothingSelected.create().show(); //display popup
 			return;
 		}

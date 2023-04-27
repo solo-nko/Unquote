@@ -1,3 +1,5 @@
 <resources>
 	<string name="app_name">Unquote</string>
+	<string name="questionsLeft">Questions Left!</string>
+	<string name="questionLeft">Question Left!</string>
 </resources>
