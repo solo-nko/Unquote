@@ -92,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	public void startNewGame() {
-		questions = new QuestionList().getList();
+
+		questions = new QuestionList().getList(6);
 		totalCorrect = 0;
 		totalQuestions = questions.size();
 
