@@ -14,8 +14,6 @@
 		<activity
 			android:name=".MainActivity"
 			android:exported="true">
-			<intent-filter>
-			</intent-filter>
 		</activity>
 		<activity
 			android:name=".IntroActivity"

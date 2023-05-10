@@ -2,4 +2,6 @@
 	<string name="app_name">Unquote</string>
 	<string name="questionsLeft">Questions Left!</string>
 	<string name="questionLeft">Question Left!</string>
+	<string name="intro_introText">Welcome to Unquote! This is a trivia app. How many questions do you think you can get right?</string>
+	<string name="intro_startBtnTxt">Let\'s get \nstarted!</string>
 </resources>
