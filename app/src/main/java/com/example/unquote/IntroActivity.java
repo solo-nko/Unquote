@@ -18,12 +18,11 @@ public class IntroActivity extends AppCompatActivity {
 
 		setContentView(R.layout.activity_intro);
 		startButton = findViewById(R.id.btn_gameStartBtn);
-
 		startButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(IntroActivity.this, MainActivity.class);
-				startActivity(intent);
+				Intent mainIntent = new Intent(IntroActivity.this, MainActivity.class);
+				startActivity(mainIntent);
 			}
 		});
 	}

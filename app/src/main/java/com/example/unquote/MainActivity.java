@@ -3,6 +3,7 @@ package com.example.unquote;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -151,8 +152,12 @@ public class MainActivity extends AppCompatActivity {
 
 		//if there are no questions remaining, run gameOverMessage() and then create a new game
 		if (questions.size() == 0) {
+			Intent gameOverIntent = new Intent(MainActivity.this, GameOverActivity.class);
+			gameOverIntent.putExtra("total_correct", totalCorrect);
+			gameOverIntent.putExtra("total_questions", totalQuestions);
+			startActivity(gameOverIntent);
 			System.out.println(gameOverMessage(totalCorrect, totalQuestions));
-			startNewGame();
+//			startNewGame();
 			//otherwise, determine the next question
 		} else {
 			chooseNewQuestion();
