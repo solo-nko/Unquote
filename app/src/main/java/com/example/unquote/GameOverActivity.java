@@ -9,10 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class GameOverActivity extends AppCompatActivity {
-	int totalCorrect = getIntent().getIntExtra("total_correct", 0);
-	double totalCorrectDouble = (double) totalCorrect;
-	int totalQuestions = getIntent().getIntExtra("total_questions", 0);
-	double totalQuestionsDouble = (double) totalQuestions;
+	int totalCorrect;
+	int totalQuestions;
 	double scorePercentage;
 	Button playAgainButton;
 	Button backToStartButton;
@@ -31,6 +29,9 @@ public class GameOverActivity extends AppCompatActivity {
 		playAgainButton = findViewById(R.id.btn_replay);
 		backToStartButton = findViewById(R.id.btn_backToStart);
 
+		totalCorrect = getIntent().getIntExtra("total_correct", 0);
+		totalQuestions = getIntent().getIntExtra("total_questions", 0);
+
 		backToStartButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -42,8 +43,16 @@ public class GameOverActivity extends AppCompatActivity {
 		score();
 	}
 
+	/*Credit:
+	* https://stackoverflow.com/a/8487819 */
+	public double roundDown2(double d) {
+		return Math.floor(d * 1e2) / 1e2;
+	}
+
 	public void score() {
-		scorePercentage = (totalCorrectDouble/totalQuestionsDouble)*100;
+		double totalCorrectDouble = totalCorrect;
+		double totalQuestionsDouble = totalQuestions;
+		scorePercentage = roundDown2(((totalCorrectDouble/totalQuestionsDouble)*100));
 		if (scorePercentage == 100) {
 			scoreEvalText.setText("You got all of them right!");
 		} else {
